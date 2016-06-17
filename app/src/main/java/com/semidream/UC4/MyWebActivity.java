@@ -25,6 +25,8 @@ public class MyWebActivity extends Activity {
 		Intent intent = getIntent();
 		String url = intent.getStringExtra("url");
 
+		System.out.println("zzz" +url);
+
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setUseWideViewPort(true);
 		webSettings.setLoadWithOverviewMode(true);

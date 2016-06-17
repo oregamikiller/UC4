@@ -23,7 +23,7 @@
 	              	  android:layout_marginLeft="10dp"
 	              	  android:text="微信团队"
 	              	  android:textSize="15dip"
-	              	  android:id="@+id/tx2"
+	              	  android:id="@+id/title"
 	              	  android:gravity="center"
 	              	  android:textColor="@color/black"
 		              />

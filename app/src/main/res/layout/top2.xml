@@ -22,7 +22,7 @@
             >
             <TextView 
                 android:padding="10dip"
-                android:id="@+id/liaotian"
+                android:id="@+id/trophy"
                 android:text="奖杯列表"
                 android:gravity="center"
                 android:textSize="15dip"
@@ -44,7 +44,7 @@
             >
             <TextView 
                 android:padding="10dip"
-                android:id="@+id/faxian"
+                android:id="@+id/guide"
                 android:text="攻略汇总"
                 android:gravity="center"
                 android:textSize="15dip"
@@ -65,7 +65,7 @@
             >
             <TextView 
                 android:padding="10dip"
-                android:id="@+id/tongxunlu"
+                android:id="@+id/news"
                 android:text="周边趣闻"
                 android:gravity="center"
                 android:textSize="15dip"

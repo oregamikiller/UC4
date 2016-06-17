@@ -45,7 +45,7 @@ public class ListItemSingleAdapter extends BaseAdapter {
 			h = new H();
 			view = LayoutInflater.from(context).inflate(R.layout.single, parent, false);
 			h.pic = (ImageView)view.findViewById(R.id.tx1);
-			h.name = (TextView)view.findViewById(R.id.tx2);
+			h.title = (TextView)view.findViewById(R.id.title);
 			
 			view.setTag(h);
 		}else{
@@ -53,7 +53,7 @@ public class ListItemSingleAdapter extends BaseAdapter {
 		}
 		
 		h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
-		h.name.setText(hh.getName());
+		h.title.setText(hh.getTitle());
 		h.url = hh.getUrl();
 
 		
@@ -62,7 +62,7 @@ public class ListItemSingleAdapter extends BaseAdapter {
 
 	class H{
 		ImageView pic;
-		TextView name;
+		TextView title;
 		String url;
 	}
 }

@@ -2,7 +2,7 @@ package com.semidream.UC4;
 
 public class ListItemSingle {
     private String txPath;
-    private String name;
+    private String title;
     private String url;
 
     public String getTxPath() {
@@ -13,19 +13,19 @@ public class ListItemSingle {
         this.txPath = txPath;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String desc) {
+    public void setUrl(String url) {
         this.url = url;
     }
 

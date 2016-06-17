@@ -26,16 +26,9 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 	private int mViewCount;
 	private int mCurSel;
 
-	private TextView liaotian;
-	private TextView faxian;
-	private TextView tongxunlu;
-
-	private TextView pz1;
-	private TextView pz2;
-	private TextView pz3;
-	private TextView pz4;
-	private TextView pz5;
-	private TextView pz6;
+	private TextView trophy;
+	private TextView guide;
+	private TextView news;
 	
 	private ListView listview1;
 	private ListView listview2;
@@ -79,9 +72,9 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 	private void init()
 
 	{
-		liaotian = (TextView) findViewById(R.id.liaotian);
-		faxian = (TextView) findViewById(R.id.faxian);
-		tongxunlu = (TextView) findViewById(R.id.tongxunlu);
+		trophy = (TextView) findViewById(R.id.trophy);
+		guide = (TextView) findViewById(R.id.guide);
+		news = (TextView) findViewById(R.id.news);
 
 		listview1 = (ListView) findViewById(R.id.listView1);
 		listview2 = (ListView) findViewById(R.id.listView2);
@@ -106,7 +99,7 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 //
 //		});
 
-		ListItemSingleAdapter hc = new ListItemSingleAdapter(this, getContact());
+		ListItemSingleAdapter hc = new ListItemSingleAdapter(this, getGuide());
 		listview2.setAdapter(hc);
 		listview2.setCacheColorHint(0);
 
@@ -124,7 +117,7 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 		});
 
 
-		ListItemSingleAdapter hd = new ListItemSingleAdapter(this, getContact());
+		ListItemSingleAdapter hd = new ListItemSingleAdapter(this, getNews());
 		listview3.setAdapter(hd);
 		listview3.setCacheColorHint(0);
 
@@ -134,10 +127,10 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
 
+				ListItemSingleAdapter.H  h=(ListItemSingleAdapter.H )arg1.getTag();
 				Intent intent = new Intent(MainActivity.this,
 						MyWebActivity.class);
-				intent.putExtra("type", "monster");
-				intent.putExtra("index", arg2);
+				intent.putExtra("url", h.url);
 				startActivity(intent);
 			}
 		});
@@ -173,22 +166,7 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 
 	}
 
-	private ArrayList<ListItemSingle> getContact() {
-		ArrayList<ListItemSingle> hcList = new ArrayList<ListItemSingle>();
-		String[] data = {"xxxx|http://www.a9vg.com/201605/6841569392.html",
-				"xxxx|http://www.a9vg.com/201605/6841569392.html",
-				"zzzzzzz|xxxx|http://www.a9vg.com/201605/6841569392.html"};
 
-		for (String x : data) {
-			String[] a = x.split("\\|");
-			ListItemSingle c = new ListItemSingle();
-			c.setTxPath(R.drawable.icon + "");
-			c.setName(a[0]);
-			c.setUrl(a[1]);
-			hcList.add(c);
-		}
-		return hcList;
-	}
 
 	private ArrayList<ListItemMultiLine> getListItemMultiLine() {
 		String[] data = {"1|最后一次|获得所有奖杯",
@@ -255,13 +233,82 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 			String[] a = x.split("\\|");
 			ListItemMultiLine h1 = new ListItemMultiLine();
 			h1.setTxPath(getImageId(this,"t" + a[0])+ "");
-			h1.setName1(a[1]);
-			h1.setLastContent(a[2]);
+			h1.setTitle(a[1]);
+			h1.setSub(a[2]);
 			hhList.add(h1);
 		}
 
 		
 		return hhList;
+	}
+
+
+	private ArrayList<ListItemSingle> getGuide() {
+		ArrayList<ListItemSingle> hcList = new ArrayList<ListItemSingle>();
+		String[] data = {"《神秘海域4》宝藏对话日志笔记收集全要素视频攻略|http://www.a9vg.com/201605/6863369394.html",
+				"《神秘海域4 盗徒末路》白金奖杯心得攻略|http://www.a9vg.com/201605/6841569392.html",
+				"《神秘海域4》惨烈难度炸弹木乃伊阵怎么过|http://www.a9vg.com/201605/6675769378.html",
+				"《神秘海域4》6小时通关与神枪手奖杯视频攻略|http://www.a9vg.com/201605/6576969364.html",
+				"《神秘海域4》良性BUG 10分钟解6小时通关和70命中率奖杯|http://www.a9vg.com/201605/9368469179.html",
+				"《神秘海域4》马达加斯加16个石塚位置一览|http://www.a9vg.com/201605/3065968619.html",
+				"《神秘海域4》古惑狼小游戏3500分攻略|http://www.a9vg.com/201605/2544468603.html",
+				"《神秘海域4》军火大王奖杯视频 军火大王怎么解|http://www.a9vg.com/201605/5810068471.html",
+				"《神秘海域4》第八章幽灵墓园奖杯简单攻略|http://www.a9vg.com/201605/3935968273.html",
+				"《神秘海域4》墓园幽灵奖杯视频攻略|http://www.a9vg.com/201605/3276268214.html",
+				"《神秘海域4》全部收集品位置信息一览|http://www.a9vg.com/201605/6425768158.html"
+		};
+
+		for (String x : data) {
+			String[] a = x.split("\\|");
+			ListItemSingle c = new ListItemSingle();
+			c.setTxPath(R.drawable.icon + "");
+			c.setTitle(a[0]);
+			c.setUrl(a[1]);
+			hcList.add(c);
+		}
+		return hcList;
+	}
+
+
+
+	private ArrayList<ListItemSingle> getNews() {
+		ArrayList<ListItemSingle> hcList = new ArrayList<ListItemSingle>();
+		String[] data = {"官方发文：《神秘海域4》已经偷跑|http://d7vg.com/topic/25436",
+				"《神秘海域4》最终预告片释出|http://d7vg.com/topic/25392",
+		"SCET 本周举办《神秘海域4 盗贼末路》中文版媒体抢先体验会，详细情报下周解禁|http://d7vg.com/topic/24622",
+				"PS4《神秘海域4》「Head or Tails」虽然很短，但是信息量很大|http://d7vg.com/topic/24584",
+				"《神秘海域4》公布幕后花絮影片，立足新世代平台扩展技术界线|http://d7vg.com/topic/24418",
+				"顽皮狗官方推特表示《神秘海域4》今日「gone gold」开始进厂批量压盘！|http://d7vg.com/topic/24302",
+				"《神秘海域4》公布第二部幕后花絮影片，和德雷克苏利文一起回忆 10 年经历|http://d7vg.com/topic/24234",
+				"PS4《神秘海域4》「幕后制作影像」第一章 — 系列的进化（更新8分钟中文字幕）|http://d7vg.com/topic/24045",
+				"去《神秘海域4 盗贼末路》的幕后看看吧，顽皮狗「游戏制作特辑」释出|http://d7vg.com/topic/24009",
+				"真是一波四折！《神秘海域4》再度跳票 5月10日发售|http://d7vg.com/topic/23770",
+				"《神秘海域4》开发过程一波三折，将成为系列中最宏大，最具野心的一部作品|http://d7vg.com/topic/23768",
+				"《神秘海域4》预告惊现「刺客信条原画」，顽皮狗坦诚道歉|http://d7vg.com/topic/23588",
+				"《神秘海域4》最新截图+故事宣传片释出|http://d7vg.com/topic/23582",
+				"《神秘海域4》推出同捆主机|http://d7vg.com/topic/23035",
+				" 祭物与雪中的刹那》《星之海洋5》《进击的巨人》《子弹少女2》《火影终极风暴4》|http://d7vg.com/topic/22838",
+				"PS4《神秘海域4 盗贼末路》中文一般版、特别版及珍藏版4月26日同步在台推出|http://d7vg.com/topic/22804",
+				"为了提升游戏品质《神秘海域4》再度延期至2016年4月26日|http://d7vg.com/topic/21879",
+				"《神秘海域4 盗贼末路》的「星球大战 原力觉醒」映前CG宣传PV|http://d7vg.com/topic/21788",
+				"《神秘海域4》制作人解释「对话选项」及「为何故事要迎来终结」|http://d7vg.com/topic/21513",
+				"《神秘海域4》「奈特 & 苏利」过场动画|http://d7vg.com/topic/21307",
+				"「PSX 2015」《神秘海域4》新宣传片，过场动画插入对话选项要素（附720P下载）|http://d7vg.com/topic/21247",
+				"PS4《神秘海域4 盗贼末路》释出 GA2015 宣传影片，新女性角色现身，德雷克遭暴打|http://d7vg.com/topic/21156",
+				"《神秘海域4》多人游玩Beta测试官方Q&A全攻略（服务器问题集中讨论）|http://d7vg.com/topic/21154",
+				"顽皮狗释出《神秘海域4》最新多人模式Beta试玩演示|http://d7vg.com/topic/21079",
+				"「PGW 2015」《神秘海域4》多人模式细节汇总|http://d7vg.com/topic/19654"
+		};
+
+		for (String x : data) {
+			String[] a = x.split("\\|");
+			ListItemSingle c = new ListItemSingle();
+			c.setTxPath(R.drawable.icon + "");
+			c.setTitle(a[0]);
+			c.setUrl(a[1]);
+			hcList.add(c);
+		}
+		return hcList;
 	}
 
 	private void setCurPoint(int index)
@@ -282,27 +329,27 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 
 		if (index == 0) {
 
-			liaotian.setTextColor(0xff228B22);
+			trophy.setTextColor(0xff228B22);
 
-			faxian.setTextColor(Color.BLACK);
+			guide.setTextColor(Color.BLACK);
 
-			tongxunlu.setTextColor(Color.BLACK);
+			news.setTextColor(Color.BLACK);
 
 		} else if (index == 1) {
 
-			liaotian.setTextColor(Color.BLACK);
+			trophy.setTextColor(Color.BLACK);
 
-			faxian.setTextColor(0xff228B22);
+			guide.setTextColor(0xff228B22);
 
-			tongxunlu.setTextColor(Color.BLACK);
+			news.setTextColor(Color.BLACK);
 
 		} else {
 
-			liaotian.setTextColor(Color.BLACK);
+			trophy.setTextColor(Color.BLACK);
 
-			faxian.setTextColor(Color.BLACK);
+			guide.setTextColor(Color.BLACK);
 
-			tongxunlu.setTextColor(0xff228B22);
+			news.setTextColor(0xff228B22);
 
 		}
 
@@ -313,7 +360,6 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 
 	public static int getImageId(Context context, String imageName) {
 
-		System.out.println("zzz" + context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName()));
 		return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
 
 	}

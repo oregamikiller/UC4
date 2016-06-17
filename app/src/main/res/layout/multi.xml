@@ -24,7 +24,7 @@
 		              android:layout_height="wrap_content"
 		          >
 			          <TextView
-			              android:id="@+id/time"
+			              android:id="@+id/addon"
 			              android:layout_width="wrap_content"
 		              	  android:layout_height="fill_parent"
 		              	  android:padding="2dip"
@@ -58,7 +58,7 @@
 		              android:layout_height="wrap_content"
 		          >
 			          <TextView
-			              android:id="@+id/name"
+			              android:id="@+id/title"
 			              android:layout_width="wrap_content"
 		              	  android:layout_height="fill_parent"
 		              	  android:layout_weight="1"
@@ -70,7 +70,7 @@
 		              	  android:textColor="@color/black"
 			              />
 			          <TextView
-			              android:id="@+id/lastmsg"
+			              android:id="@+id/sub"
 			              android:layout_width="wrap_content"
 		              	  android:layout_height="fill_parent"
 		              	  android:padding="2dip"

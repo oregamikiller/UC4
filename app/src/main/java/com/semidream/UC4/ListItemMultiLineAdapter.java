@@ -45,9 +45,9 @@ public class ListItemMultiLineAdapter extends BaseAdapter {
 			h = new H();
 			view = LayoutInflater.from(context).inflate(R.layout.multi, parent, false);
 			h.pic = (ImageView)view.findViewById(R.id.l1);
-			h.name = (TextView)view.findViewById(R.id.name);
-			h.time = (TextView)view.findViewById(R.id.time);
-			h.lastmsg = (TextView)view.findViewById(R.id.lastmsg);
+			h.title = (TextView)view.findViewById(R.id.title);
+			h.addon = (TextView)view.findViewById(R.id.addon);
+			h.sub = (TextView)view.findViewById(R.id.sub);
 			
 			view.setTag(h);
 		}else{
@@ -55,19 +55,19 @@ public class ListItemMultiLineAdapter extends BaseAdapter {
 		}
 		
 		h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
-		h.name.setText(hh.getName1());
-		h.time.setText(hh.getLastTime());
-		h.lastmsg.setText(hh.getLastContent());
-		h.url = hh.getLastContent();
+		h.title.setText(hh.getTitle());
+		h.addon.setText(hh.getAddon());
+		h.sub.setText(hh.getSub());
+		h.url = hh.getUrl();
 		
 		return view;
 	}
 
 	class H{
 		ImageView pic;
-		TextView name;
-		TextView time;
-		TextView lastmsg;
+		TextView title;
+		TextView addon;
+		TextView sub;
 		String url;
 	}
 }
