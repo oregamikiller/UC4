@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<RelativeLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <LinearLayout
+        android:id="@+id/llayout" 
+        android:orientation="vertical"
+        android:layout_width="match_parent" 
+    	android:layout_height="wrap_content" 
+    	android:layout_alignParentTop="true" 
+        >
+        <include layout="@layout/top1"/>
+        <include layout="@layout/top2"/>
+    </LinearLayout>
+    <com.semidream.UC4.MyScrollLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"    
+	  android:id="@+id/ScrollLayout"    
+	  android:layout_width="fill_parent"    
+	  android:layout_below="@id/llayout"
+	  android:layout_alignParentBottom="true" 
+	  android:layout_height="fill_parent">    
+  
+ 	  <com.semidream.UC4.MyFrame
+ 	    android:background="@color/white"
+	  	android:layout_width="fill_parent"    
+	  	android:layout_height="wrap_content">
+	  	
+ 	     		 <ListView
+                    android:id="@+id/listView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/reader_item_divider"
+                    
+                     >
+                </ListView>
+	  </com.semidream.UC4.MyFrame>
+      
+	  <FrameLayout
+	    android:background="@color/white"
+	  	android:layout_width="fill_parent"    
+	  	android:layout_height="wrap_content">     
+	  	
+	   	    <ListView
+                    android:id="@+id/listView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/reader_item_divider"
+                     >
+                </ListView>
+	   	    
+	  </FrameLayout>
+
+		<FrameLayout
+			android:background="@color/white"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<ListView
+				android:id="@+id/listView3"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:cacheColorHint="@android:color/transparent"
+				android:divider="@drawable/reader_item_divider"
+				>
+			</ListView>
+
+		</FrameLayout>
+	</com.semidream.UC4.MyScrollLayout>
+</RelativeLayout>
+
