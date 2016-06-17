@@ -54,6 +54,8 @@ public class ListItemSingleAdapter extends BaseAdapter {
 		
 		h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
 		h.name.setText(hh.getName());
+		h.url = hh.getUrl();
+
 		
 		return view;
 	}
@@ -61,5 +63,6 @@ public class ListItemSingleAdapter extends BaseAdapter {
 	class H{
 		ImageView pic;
 		TextView name;
+		String url;
 	}
 }

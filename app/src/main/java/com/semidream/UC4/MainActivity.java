@@ -91,20 +91,20 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 				getListItemMultiLine());
 		listview1.setAdapter(ha);
 		listview1.setCacheColorHint(0);
-		listview1.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-
-				ListItemMultiLineAdapter.H  h=(ListItemMultiLineAdapter.H )arg1.getTag();
-					Intent intent = new Intent(MainActivity.this,MyWebActivity.class);
-					intent.putExtra("url", "http://d7vg.com/psngame/7028");
-
-					startActivity(intent);
-			}
-
-		});
+//		listview1.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//					long arg3) {
+//
+//				ListItemMultiLineAdapter.H  h=(ListItemMultiLineAdapter.H )arg1.getTag();
+//					Intent intent = new Intent(MainActivity.this,MyWebActivity.class);
+//					intent.putExtra("url", "http://d7vg.com/psngame/7028");
+//
+//					startActivity(intent);
+//			}
+//
+//		});
 
 		ListItemSingleAdapter hc = new ListItemSingleAdapter(this, getContact());
 		listview2.setAdapter(hc);
@@ -115,11 +115,10 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-
+				ListItemSingleAdapter.H  h=(ListItemSingleAdapter.H )arg1.getTag();
 				Intent intent = new Intent(MainActivity.this,
 						MyWebActivity.class);
-				intent.putExtra("type", "monster");
-				intent.putExtra("index", arg2);
+				intent.putExtra("url", h.url);
 				startActivity(intent);
 			}
 		});
@@ -176,12 +175,16 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 
 	private ArrayList<ListItemSingle> getContact() {
 		ArrayList<ListItemSingle> hcList = new ArrayList<ListItemSingle>();
-		String[] data = {"xxxx","yyyy","zzzzzzz"};
+		String[] data = {"xxxx|http://www.a9vg.com/201605/6841569392.html",
+				"xxxx|http://www.a9vg.com/201605/6841569392.html",
+				"zzzzzzz|xxxx|http://www.a9vg.com/201605/6841569392.html"};
 
 		for (String x : data) {
+			String[] a = x.split("\\|");
 			ListItemSingle c = new ListItemSingle();
-			c.setTxPath(R.drawable.title + "");
-			c.setName(x);
+			c.setTxPath(R.drawable.icon + "");
+			c.setName(a[0]);
+			c.setUrl(a[1]);
 			hcList.add(c);
 		}
 		return hcList;
@@ -249,10 +252,11 @@ public class MainActivity extends Activity implements OnViewChangeListener,
 		ArrayList<ListItemMultiLine> hhList = new ArrayList<ListItemMultiLine>();
 
 		for (String x : data) {
+			String[] a = x.split("\\|");
 			ListItemMultiLine h1 = new ListItemMultiLine();
-			h1.setTxPath(getImageId(this,"t" + x.split("\\|")[0])+ "");
-			h1.setName1(x.split("\\|")[1]);
-			h1.setLastContent(x.split("\\|")[2]);
+			h1.setTxPath(getImageId(this,"t" + a[0])+ "");
+			h1.setName1(a[1]);
+			h1.setLastContent(a[2]);
 			hhList.add(h1);
 		}
 
