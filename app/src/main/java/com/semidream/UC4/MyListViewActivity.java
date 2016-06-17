@@ -3,17 +3,6 @@ package com.semidream.UC4;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-
-
-
-
-
-
-
-import net.youmi.android.spot.SpotManager;
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,9 +28,6 @@ public class MyListViewActivity extends Activity {
 		index2 = intent.getIntExtra("index2", 0);
 	
 
-		SpotManager.getInstance(MyListViewActivity.this).showSpotAds(
-				MyListViewActivity.this);
-		
  String source = intent.getStringExtra("source");
 
 	

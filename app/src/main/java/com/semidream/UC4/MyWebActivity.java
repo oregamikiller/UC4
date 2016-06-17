@@ -2,7 +2,6 @@ package com.semidream.UC4;
 
 
 
-import net.youmi.android.spot.SpotManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,8 +24,6 @@ public class MyWebActivity extends Activity {
 		WebSettings webSettings = mywebView.getSettings();
 		Intent intent = getIntent();
 		String url = intent.getStringExtra("url");
-		SpotManager.getInstance(MyWebActivity.this).showSpotAds(
-				MyWebActivity.this);
 
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setUseWideViewPort(true);
